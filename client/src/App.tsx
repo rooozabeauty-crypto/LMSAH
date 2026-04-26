@@ -24,6 +24,9 @@ import ServiceContent from "./pages/ServiceContent";
 import ServiceStore from "./pages/ServiceStore";
 import ServiceIntegration from "./pages/ServiceIntegration";
 import AdminDashboard from "./pages/AdminDashboard";
+import NotificationDesigner from "./pages/NotificationDesigner";
+import VideoGenerator from "./pages/VideoGenerator";
+import FontGenerator from "./pages/FontGenerator";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -50,6 +53,9 @@ function Router() {
       <Route path={"/service-store"} component={ServiceStore} />
       <Route path={"/service-integration"} component={ServiceIntegration} />
       <Route path={"/admin-dashboard"} component={AdminDashboard} />
+      <Route path={"/notification-designer"} component={NotificationDesigner} />
+      <Route path={"/video-generator"} component={VideoGenerator} />
+      <Route path={"/font-generator"} component={FontGenerator} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
