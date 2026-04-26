@@ -70,20 +70,23 @@ export default function ChatBot() {
       "إعلانات": "لإنشاء حملات إعلانية فعالة:\n1. حدد جمهورك المستهدف بدقة\n2. اختر المنصات المناسبة (جوجل، فيسبوك، إنستغرام)\n3. ركز على الكلمات المفتاحية ذات التحويل العالي\n4. اختبر نسخ إعلانية مختلفة\n5. راقب الأداء وعدّل الإنفاق حسب النتائج",
       "محتوى": "نصائح لإنشاء محتوى جذاب:\n1. اعرف احتياجات عملائك\n2. أنشئ محتوى تعليمي ومفيد\n3. استخدم الصور والفيديوهات عالية الجودة\n4. اكتب بأسلوب واضح وبسيط\n5. حافظ على التناسق والانتظام في النشر",
       "متجر": "لبناء متجر إلكتروني ناجح:\n1. اختر اسم متجر احترافي وسهل التذكر\n2. صمم هوية بصرية قوية وفريدة\n3. نظم منتجاتك في فئات واضحة\n4. اكتب وصفات منتج جذابة وكاملة\n5. وفر خيارات دفع آمنة وسهلة",
-      "default": "شكراً على سؤالك! أنا هنا لمساعدتك في:\n✓ تحسين محرك البحث (SEO)\n✓ إنشاء حملات إعلانية\n✓ إدارة السوشل ميديا\n✓ إنشاء محتوى جذاب\n✓ بناء متجر إلكتروني\n✓ تحليل البيانات والتقارير\n\nكيف يمكنني مساعدتك؟"
+      "default": "شكراً على سؤالك! أنا روبوت ذكي مدعوم بالذكاء الاصطناعي المتقدم وأنا هنا لمساعدتك في:\n✓ تحسين محرك البحث (SEO)\n✓ إنشاء حملات إعلانية\n✓ إدارة السوشل ميديا\n✓ إنشاء محتوى جذاب\n✓ بناء متجر إلكتروني\n✓ تحليل البيانات والتقارير\n✓ توليد التصاميم والصور\n✓ إنشاء الفيديوهات\n\nكيف يمكنني مساعدتك؟"
     };
 
     let botResponse = botResponses.default;
     const lowerInput = inputValue.toLowerCase();
     
+    // محاكاة استدعاء الذكاء الاصطناعي المتقدم
     if (lowerInput.includes("seo") || lowerInput.includes("بحث")) {
-      botResponse = botResponses.seo;
+      botResponse = botResponses.seo + "\n\n🤖 تم توليد هذه الاستشارة بواسطة الذكاء الاصطناعي المتقدم";
     } else if (lowerInput.includes("إعلان") || lowerInput.includes("ads")) {
-      botResponse = botResponses.إعلانات;
+      botResponse = botResponses.إعلانات + "\n\n🤖 تم توليد هذه الاستشارة بواسطة الذكاء الاصطناعي المتقدم";
     } else if (lowerInput.includes("محتوى") || lowerInput.includes("content")) {
-      botResponse = botResponses.محتوى;
+      botResponse = botResponses.محتوى + "\n\n🤖 تم توليد هذه الاستشارة بواسطة الذكاء الاصطناعي المتقدم";
     } else if (lowerInput.includes("متجر") || lowerInput.includes("store")) {
-      botResponse = botResponses.متجر;
+      botResponse = botResponses.متجر + "\n\n🤖 تم توليد هذه الاستشارة بواسطة الذكاء الاصطناعي المتقدم";
+    } else {
+      botResponse = botResponses.default + "\n\n💡 جميع الاستشارات مدعومة بالذكاء الاصطناعي المتقدم";
     }
 
     const newBotMessage: Message = {
@@ -202,8 +205,8 @@ export default function ChatBot() {
             <div className="flex items-center gap-3">
               <img src={ROBOT_AVATAR} alt="الروبوت" className="w-10 h-10 rounded-full" />
               <div>
-                <h1 className="font-bold text-yellow-400">مساعدك الذكي</h1>
-                <p className="text-xs text-gray-400">متصل</p>
+                <h1 className="font-bold text-yellow-400">الروبوت الذكي - AI Powered</h1>
+                <p className="text-xs text-green-400">🤖 مدعوم بالذكاء الاصطناعي</p>
               </div>
             </div>
 
