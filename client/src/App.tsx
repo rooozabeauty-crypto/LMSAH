@@ -17,6 +17,9 @@ import AdTracking from "./pages/AdTracking";
 import Cashback from "./pages/Cashback";
 import Loyalty from "./pages/Loyalty";
 import Plans from "./pages/Plans";
+import ServiceSEO from "./pages/ServiceSEO";
+import ServiceAdvertising from "./pages/ServiceAdvertising";
+import ServiceSocialMedia from "./pages/ServiceSocialMedia";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -36,6 +39,9 @@ function Router() {
       <Route path={"/cashback"} component={Cashback} />
       <Route path={"/loyalty"} component={Loyalty} />
       <Route path={"/plans"} component={Plans} />
+      <Route path={"/service-seo"} component={ServiceSEO} />
+      <Route path={"/service-advertising"} component={ServiceAdvertising} />
+      <Route path={"/service-social-media"} component={ServiceSocialMedia} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

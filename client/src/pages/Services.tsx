@@ -15,6 +15,7 @@ interface Service {
   details: string[];
   benefits: string[];
   pricing: string;
+  link?: string;
 }
 
 const services: Service[] = [
@@ -23,6 +24,7 @@ const services: Service[] = [
     title: "تحسين محرك البحث (SEO)",
     description: "ظهور أول في جوجل وزيادة الزيارات العضوية",
     icon: "🔍",
+    link: "/service-seo",
     details: [
       "تحليل الكلمات المفتاحية المناسبة",
       "تحسين محتوى المتجر",
@@ -43,6 +45,7 @@ const services: Service[] = [
     title: "الحملات الإعلانية",
     description: "إنشاء وإدارة حملات إعلانية احترافية",
     icon: "🎯",
+    link: "/service-advertising",
     details: [
       "إعلانات جوجل (Google Ads)",
       "إعلانات فيسبوك وإنستغرام",
@@ -63,6 +66,7 @@ const services: Service[] = [
     title: "إدارة السوشل ميديا",
     description: "إدارة شاملة لجميع منصات التواصل الاجتماعي",
     icon: "📱",
+    link: "/service-social-media",
     details: [
       "إنشاء محتوى جذاب يومي",
       "إدارة التفاعلات والتعليقات",
@@ -231,7 +235,7 @@ export default function Services() {
             <Card
               key={service.id}
               className="bg-gradient-to-br from-yellow-900/20 to-blue-900/20 border-yellow-600/30 hover:border-yellow-500/60 transition p-6 cursor-pointer group"
-              onClick={() => setSelectedService(service)}
+              onClick={() => service.link ? setLocation(service.link) : setSelectedService(service)}
             >
               <div className="text-5xl mb-4">{service.icon}</div>
               <h3 className="text-xl font-bold mb-2 group-hover:text-yellow-400 transition">
