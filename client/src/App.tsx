@@ -7,6 +7,9 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import ChatBot from "./pages/ChatBot";
 import Services from "./pages/Services";
+import Register from "./pages/Register";
+import Suppliers from "./pages/Suppliers";
+import Support from "./pages/Support";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -16,6 +19,9 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/chatbot"} component={ChatBot} />
       <Route path={"/services"} component={Services} />
+      <Route path={"/register"} component={Register} />
+      <Route path={"/suppliers"} component={Suppliers} />
+      <Route path={"/support"} component={Support} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
