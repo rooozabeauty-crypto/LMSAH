@@ -10,6 +10,13 @@ import Services from "./pages/Services";
 import Register from "./pages/Register";
 import Suppliers from "./pages/Suppliers";
 import Support from "./pages/Support";
+import Creative from "./pages/Creative";
+import AbandonedCarts from "./pages/AbandonedCarts";
+import Influencers from "./pages/Influencers";
+import AdTracking from "./pages/AdTracking";
+import Cashback from "./pages/Cashback";
+import Loyalty from "./pages/Loyalty";
+import Plans from "./pages/Plans";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -22,6 +29,13 @@ function Router() {
       <Route path={"/register"} component={Register} />
       <Route path={"/suppliers"} component={Suppliers} />
       <Route path={"/support"} component={Support} />
+      <Route path={"/creative"} component={Creative} />
+      <Route path={"/abandoned-carts"} component={AbandonedCarts} />
+      <Route path={"/influencers"} component={Influencers} />
+      <Route path={"/ad-tracking"} component={AdTracking} />
+      <Route path={"/cashback"} component={Cashback} />
+      <Route path={"/loyalty"} component={Loyalty} />
+      <Route path={"/plans"} component={Plans} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

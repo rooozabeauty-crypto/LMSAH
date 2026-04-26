@@ -24,12 +24,24 @@ export default function Layout({ children }: LayoutProps) {
           </a>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-8 items-center">
+          <div className="hidden md:flex gap-6 items-center text-sm">
             <a href="/" className="hover:text-yellow-500 transition">الرئيسية</a>
             <a href="/services" className="hover:text-yellow-500 transition">الخدمات</a>
-            <a href="/chatbot" className="hover:text-yellow-500 transition">الروبوت الذكي</a>
+            <a href="/chatbot" className="hover:text-yellow-500 transition">الروبوت</a>
+            <div className="relative group">
+              <button className="hover:text-yellow-500 transition">الأدوات</button>
+              <div className="absolute hidden group-hover:block bg-black/95 border border-yellow-600/30 rounded-lg py-2 w-40 z-50">
+                <a href="/creative" className="block px-4 py-2 hover:text-yellow-500">الإبداع</a>
+                <a href="/abandoned-carts" className="block px-4 py-2 hover:text-yellow-500">السلات المتروكة</a>
+                <a href="/ad-tracking" className="block px-4 py-2 hover:text-yellow-500">تتبع الإعلانات</a>
+                <a href="/cashback" className="block px-4 py-2 hover:text-yellow-500">الكاش باك</a>
+                <a href="/loyalty" className="block px-4 py-2 hover:text-yellow-500">الولاء</a>
+              </div>
+            </div>
+            <a href="/influencers" className="hover:text-yellow-500 transition">المؤثرين</a>
             <a href="/suppliers" className="hover:text-yellow-500 transition">الموردين</a>
             <a href="/support" className="hover:text-yellow-500 transition">الدعم</a>
+            <a href="/plans" className="hover:text-yellow-500 transition font-bold text-yellow-400">خطط الاشتراك</a>
           </div>
 
           <div className="hidden md:flex gap-4">
@@ -67,9 +79,16 @@ export default function Layout({ children }: LayoutProps) {
           <div className="md:hidden bg-black/95 border-t border-yellow-600/20 p-4 space-y-4">
             <a href="/" className="block hover:text-yellow-500">الرئيسية</a>
             <a href="/services" className="block hover:text-yellow-500">الخدمات</a>
-            <a href="/chatbot" className="block hover:text-yellow-500">الروبوت الذكي</a>
+            <a href="/chatbot" className="block hover:text-yellow-500">الروبوت</a>
+            <a href="/creative" className="block hover:text-yellow-500">الإبداع</a>
+            <a href="/abandoned-carts" className="block hover:text-yellow-500">السلات المتروكة</a>
+            <a href="/ad-tracking" className="block hover:text-yellow-500">تتبع الإعلانات</a>
+            <a href="/cashback" className="block hover:text-yellow-500">الكاش باك</a>
+            <a href="/loyalty" className="block hover:text-yellow-500">الولاء</a>
+            <a href="/influencers" className="block hover:text-yellow-500">المؤثرين</a>
             <a href="/suppliers" className="block hover:text-yellow-500">الموردين</a>
             <a href="/support" className="block hover:text-yellow-500">الدعم</a>
+            <a href="/plans" className="block hover:text-yellow-500 font-bold text-yellow-400">خطط الاشتراك</a>
             {isAuthenticated ? (
               <Button 
                 onClick={logout}
