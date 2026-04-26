@@ -23,6 +23,7 @@ import ServiceSocialMedia from "./pages/ServiceSocialMedia";
 import ServiceContent from "./pages/ServiceContent";
 import ServiceStore from "./pages/ServiceStore";
 import ServiceIntegration from "./pages/ServiceIntegration";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -48,6 +49,7 @@ function Router() {
       <Route path={"/service-content"} component={ServiceContent} />
       <Route path={"/service-store"} component={ServiceStore} />
       <Route path={"/service-integration"} component={ServiceIntegration} />
+      <Route path={"/admin-dashboard"} component={AdminDashboard} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

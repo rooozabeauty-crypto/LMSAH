@@ -42,6 +42,7 @@ export default function Layout({ children }: LayoutProps) {
             <a href="/suppliers" className="hover:text-yellow-500 transition">الموردين</a>
             <a href="/support" className="hover:text-yellow-500 transition">الدعم</a>
             <a href="/plans" className="hover:text-yellow-500 transition font-bold text-yellow-400">خطط الاشتراك</a>
+            <a href="/admin-dashboard" className="hover:text-yellow-500 transition">لوحة التحكم</a>
           </div>
 
           <div className="hidden md:flex gap-4">
@@ -89,6 +90,7 @@ export default function Layout({ children }: LayoutProps) {
             <a href="/suppliers" className="block hover:text-yellow-500">الموردين</a>
             <a href="/support" className="block hover:text-yellow-500">الدعم</a>
             <a href="/plans" className="block hover:text-yellow-500 font-bold text-yellow-400">خطط الاشتراك</a>
+            <a href="/admin-dashboard" className="hover:text-yellow-500 transition">لوحة التحكم</a>
             {isAuthenticated ? (
               <Button 
                 onClick={logout}
