@@ -20,6 +20,9 @@ import Plans from "./pages/Plans";
 import ServiceSEO from "./pages/ServiceSEO";
 import ServiceAdvertising from "./pages/ServiceAdvertising";
 import ServiceSocialMedia from "./pages/ServiceSocialMedia";
+import ServiceContent from "./pages/ServiceContent";
+import ServiceStore from "./pages/ServiceStore";
+import ServiceIntegration from "./pages/ServiceIntegration";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -42,6 +45,9 @@ function Router() {
       <Route path={"/service-seo"} component={ServiceSEO} />
       <Route path={"/service-advertising"} component={ServiceAdvertising} />
       <Route path={"/service-social-media"} component={ServiceSocialMedia} />
+      <Route path={"/service-content"} component={ServiceContent} />
+      <Route path={"/service-store"} component={ServiceStore} />
+      <Route path={"/service-integration"} component={ServiceIntegration} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

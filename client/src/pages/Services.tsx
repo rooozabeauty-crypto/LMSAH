@@ -87,6 +87,7 @@ const services: Service[] = [
     title: "إنشاء المحتوى",
     description: "محتوى احترافي وجذاب لعلامتك التجارية",
     icon: "✨",
+    link: "/service-content",
     details: [
       "كتابة محتوى SEO متوافق",
       "إنتاج فيديوهات احترافية",
@@ -107,6 +108,7 @@ const services: Service[] = [
     title: "المتجر الإلكتروني",
     description: "بناء متجر احترافي من الصفر مع هوية بصرية",
     icon: "🛍️",
+    link: "/service-store",
     details: [
       "تصميم هوية بصرية فريدة",
       "تطوير متجر احترافي",
@@ -124,9 +126,10 @@ const services: Service[] = [
   },
   {
     id: "analytics",
-    title: "التقارير والبيانات",
-    description: "تقارير مفصلة تظهر نمو متجرك",
-    icon: "📊",
+    title: "ربط الأدوات والتكامل",
+    description: "ربط متجرك مع أدوات التسويق الرائدة",
+    icon: "🔗",
+    link: "/service-integration",
     details: [
       "تقارير شاملة عن الأداء",
       "تحليل سلوك العملاء",
