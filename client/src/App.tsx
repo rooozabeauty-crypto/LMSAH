@@ -27,6 +27,8 @@ import AdminDashboard from "./pages/AdminDashboard";
 import NotificationDesigner from "./pages/NotificationDesigner";
 import VideoGenerator from "./pages/VideoGenerator";
 import FontGenerator from "./pages/FontGenerator";
+import NotificationSystem from "./pages/NotificationSystem";
+import AdvancedReports from "./pages/AdvancedReports";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -56,6 +58,8 @@ function Router() {
       <Route path={"/notification-designer"} component={NotificationDesigner} />
       <Route path={"/video-generator"} component={VideoGenerator} />
       <Route path={"/font-generator"} component={FontGenerator} />
+      <Route path={"/notification-system"} component={NotificationSystem} />
+      <Route path={"/advanced-reports"} component={AdvancedReports} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
