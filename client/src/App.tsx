@@ -29,12 +29,12 @@ import VideoGenerator from "./pages/VideoGenerator";
 import FontGenerator from "./pages/FontGenerator";
 import NotificationSystem from "./pages/NotificationSystem";
 import AdvancedReports from "./pages/AdvancedReports";
+import ServiceActivation from "./pages/ServiceActivation";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
-      <Route path={"/ "} component={Home} />
       <Route path={"/"} component={Home} />
       <Route path={"/chatbot"} component={ChatBot} />
       <Route path={"/services"} component={Services} />
@@ -60,6 +60,7 @@ function Router() {
       <Route path={"/font-generator"} component={FontGenerator} />
       <Route path={"/notification-system"} component={NotificationSystem} />
       <Route path={"/advanced-reports"} component={AdvancedReports} />
+      <Route path={"/service-activation"} component={ServiceActivation} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
@@ -75,17 +76,15 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <div className="dark">
-        <ThemeProvider
-          defaultTheme="dark"
-          // switchable
-        >
-          <TooltipProvider>
-            <Toaster />
-            <Router />
-          </TooltipProvider>
-        </ThemeProvider>
-      </div>
+      <ThemeProvider
+        defaultTheme="dark"
+        // switchable
+      >
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+        </TooltipProvider>
+      </ThemeProvider>
     </ErrorBoundary>
   );
 }
