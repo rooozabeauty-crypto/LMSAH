@@ -1,39 +1,53 @@
 const express = require("express");
 const router = express.Router();
-const { users, orders } = require("../db");
 
-// webhook dynamic
+// ======================
+// Salla Webhook
+// ======================
 router.post("/salla/:userId", (req, res) => {
-  const { userId } = req.params;
-  const data = req.body;
+  try {
+    const { userId } = req.params;
+    const data = req.body;
 
-  console.log("📦 Callback for:", userId);
+    // ⚡ رد سريع جدًا (مهم لسلة)
+    res.status(200).json({ success: true });
 
-  const user = users.find(u => u.id === userId);
-
-  if (!user) {
-    return res.status(404).json({ error: "User not found" });
-  }
-
-  // حفظ الطلب
-  if (data.event === "order.created") {
-    const order = {
+    // ======================
+    // Logs
+    // ======================
+    console.log("📦 Webhook Received");
+    console.log({
       userId,
-      orderId: data.data?.id,
-      status: "created",
-      createdAt: new Date()
-    };
+      event: data?.event,
+      orderId: data?.data?.id
+    });
 
-    orders.push(order);
+    // ======================
+    // Events
+    // ======================
+    switch (data?.event) {
+      case "order.created":
+        console.log("🛒 New Order:", data.data?.id);
+        break;
 
-    console.log("🛒 Order saved:", order);
+      case "order.paid":
+        console.log("💰 Order Paid:", data.data?.id);
+        break;
+
+      case "order.shipped":
+        console.log("🚚 Order Shipped:", data.data?.id);
+        break;
+
+      default:
+        console.log("ℹ️ Other Event:", data?.event);
+    }
+
+  } catch (error) {
+    console.error("❌ Error:", error);
+
+    // حتى لو فيه خطأ نرجع 200 عشان سلة ما تفشل
+    res.status(200).json({ success: false });
   }
-
-  if (data.event === "order.paid") {
-    console.log("💰 Paid:", data.data?.id);
-  }
-
-  res.status(200).json({ success: true });
 });
 
 module.exports = router;
