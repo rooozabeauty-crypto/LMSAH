@@ -46,7 +46,7 @@ app.get("/api/hello", (req, res) => {
 app.use(
   "/",
   createProxyMiddleware({
-    target: "https://marketing-agents-hub--rooozahmd4.replit.app/",
+    target: "/https://lmsah-rmuz-bcaysjl3.manus.space/,
     changeOrigin: true,
   })
 );
