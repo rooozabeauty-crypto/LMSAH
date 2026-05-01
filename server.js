@@ -36,7 +36,7 @@ app.get('/callback', async (req, res) => {
         grant_type: 'authorization_code',
         client_id: CLIENT_ID,7e42b932-6690-477d-aba0-a9fca78047e5
         client_secret: CLIENT_SECRET,310900ec8eeeb78ef7c712cfc3704967de31af9ad7b64d670b2253897d87855c
-        redirect_uri: REDIRECT_URI,https://lmsah-rmuz-bcaysjl3.manus.space/callback/
+        redirect_uri: REDIRECT_URI,https://lmsah-rmuz-bcaysjl3.manus.space
         code: code
       }
     );
