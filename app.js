@@ -1,9 +1,5 @@
 const express = require("express");
-const path = require("path");
 require("dotenv").config();
-
-// مهم للـ proxy
-const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const app = express();
 
@@ -14,42 +10,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ======================
-// Salla Webhook
+// Routes
 // ======================
-app.post("/webhook/salla/callback", (req, res) => {
-  const data = req.body;
+const callbackRoutes = require("./routes/callback");
+app.use("/webhook", callbackRoutes);
 
-  console.log("📦 Salla Callback:");
-  console.log(JSON.stringify(data, null, 2));
-
-  if (data.event === "order.created") {
-    console.log("🛒 New Order:", data.data?.id);
-  }
-
-  if (data.event === "order.paid") {
-    console.log("💰 Order Paid:", data.data?.id);
-  }
-
-  res.status(200).json({ success: true });
+// ======================
+// Status (اختبار)
+// ======================
+app.get("/status", (req, res) => {
+  res.json({ status: "running ✅" });
 });
 
 // ======================
-// API Test
+// الصفحة الرئيسية
 // ======================
-app.get("/api/hello", (req, res) => {
-  res.json({ message: "Hello from LMSAH 🚀" });
+app.get("/", (req, res) => {
+  res.send("🚀 LMSAH Webhook Server Running");
 });
-
-// ======================
-// PROXY (المهم 🔥)
-// ======================
-app.use(
-  "/",
-  createProxyMiddleware({
-    target: "/https://lmsah-rmuz-bcaysjl3.manus.space/,
-    changeOrigin: true,
-  })
-);
 
 // ======================
 // Export
