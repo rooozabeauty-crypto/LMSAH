@@ -2,6 +2,9 @@ const express = require("express");
 const path = require("path");
 require("dotenv").config();
 
+// مهم للـ proxy
+const { createProxyMiddleware } = require("http-proxy-middleware");
+
 const app = express();
 
 // ======================
@@ -11,61 +14,42 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ======================
-// Import DB
+// Salla Webhook
 // ======================
-const { users, orders } = require("./db");
+app.post("/webhook/salla/callback", (req, res) => {
+  const data = req.body;
 
-// ======================
-// Routes
-// ======================
-const callbackRoutes = require("./routes/callback");
-app.use("/webhook", callbackRoutes);
+  console.log("📦 Salla Callback:");
+  console.log(JSON.stringify(data, null, 2));
 
-// ======================
-// Test API
-// ======================
-app.get("/", (req, res) => {
-  res.send("🚀 LMSAH System Running");
-});
+  if (data.event === "order.created") {
+    console.log("🛒 New Order:", data.data?.id);
+  }
 
-app.get("/status", (req, res) => {
-  res.json({ status: "running ✅" });
-});
+  if (data.event === "order.paid") {
+    console.log("💰 Order Paid:", data.data?.id);
+  }
 
-// ======================
-// Users
-// ======================
-app.get("/users", (req, res) => {
-  res.json(users);
+  res.status(200).json({ success: true });
 });
 
 // ======================
-// Orders by user
+// API Test
 // ======================
-app.get("/orders/:userId", (req, res) => {
-  const userOrders = orders.filter(
-    o => o.userId === req.params.userId
-  );
-
-  res.json(userOrders);
+app.get("/api/hello", (req, res) => {
+  res.json({ message: "Hello from LMSAH 🚀" });
 });
 
 // ======================
-// Create user (اختياري)
+// PROXY (المهم 🔥)
 // ======================
-app.post("/create-user", (req, res) => {
-  const { name } = req.body;
-
-  const newUser = {
-    id: "user_" + (users.length + 1),
-    name,
-    apiKey: Math.random().toString(36).substring(7)
-  };
-
-  users.push(newUser);
-
-  res.json(newUser);
-});
+app.use(
+  "/",
+  createProxyMiddleware({
+    target: "https://marketing-agents-hub--rooozahmd4.replit.app/",
+    changeOrigin: true,
+  })
+);
 
 // ======================
 // Export
